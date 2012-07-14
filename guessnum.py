@@ -3,10 +3,15 @@
 import random
 from optparse import OptionParser
 
-## Set up some stuff
-counter = 3
+# Set up some stuff - change these to make the game that you want
+number_of_attempts = 3
+max_guess_val = 20
+auto_cheat = False    # for debugging purposes
+
+# These variables are fixed. Don't change these manually
+counter = number_of_attempts
 funny = 0
-randnum = random.randint(1,20)
+randnum = random.randint(1, max_guess_val)
 
 # Set up the parser args
 parser = OptionParser()
@@ -16,7 +21,7 @@ parser.add_option("--i-am-a-stupid-cheater", action="store_true", dest="cheat")
 
 def funnymessage(funny):
     if funny == 3:
-        return(print("It's pretty simple. Just choose a number between 1 and 20 (no decimals)."))
+        return(print("It's pretty simple. Just choose a number between 1 and %i (no decimals)." % (max_guess_val)))
     elif funny == 6:
         return(print("Maybe you have a problem with your keyboard..."))
     elif funny == 9:
@@ -46,10 +51,10 @@ def funnymessage(funny):
         return(print("Please choose a number"))
 
 # Begin with the main
-print("I've chosen a number between 1 and 20. What is it? You get", counter, "attempts")
+print("I've chosen a number between 1 and %i. What is it? You get %i attempts" % (max_guess_val, number_of_attempts))
 
 # For the cheaters! (or bug testers like me)
-if options.cheat is True: 
+if options.cheat is True or auto_cheat is True: 
     print("*** You want to cheat. I get it. Fine...the number is: %i ***" % (randnum)) # cheater, cheater, pumpkin eater!
 
 while counter > 0:
@@ -67,7 +72,7 @@ while counter > 0:
             exit(1)
 
     if (guess == randnum):
-        if counter == 3:
+        if counter == number_of_attempts:
             print("You got it on the first try! Amazing!")
         else:
             print("You got it! Congrats!")
