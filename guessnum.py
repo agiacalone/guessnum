@@ -28,7 +28,7 @@ def funnymessage(funny):
     elif funny == 18:
         return(print("Monkeys have had a higher success rate than this..."))
     elif funny == 21:
-        return(print("I think you're just toying with me now."))
+        return(print("I think you're just toying with me."))
     elif funny == 24:
         return(print("Seriously?? It's starting to get old now."))
     elif funny == 27:
