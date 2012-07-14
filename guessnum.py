@@ -30,7 +30,7 @@ def funnymessage(funny):
     elif funny == 21:
         return(print("I think you're just toying with me now."))
     elif funny == 24:
-        return(print("Seriously???"))
+        return(print("Seriously?? It's starting to get old now."))
     elif funny == 27:
         return(print("Come on, dude. Just pick a number!!"))
     elif funny == 30:
